@@ -30,7 +30,7 @@ public class CourseController {
     }
     
     
-    public Optional<InstructorsCourseDto> readStudentsBySubject(int id) {
+    public Optional<InstructorsCourseDto> readInstructorsCourse(int id) {
         
         if (exitCourseId(id)) {
             CourseDto course = new CourseDto(DaoFactory.getFactory().getCourseDao().read(id));
