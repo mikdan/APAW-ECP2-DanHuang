@@ -1,18 +1,24 @@
 package es.upm.miw.api.dtos;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import es.upm.miw.api.entities.Instructor;
 
 public class InstructorDto {
     private int id;
     private String firstName;
     private String lastName;
+    private Calendar hireDate;
+    private CourseDto course;
     
     public InstructorDto(Instructor instructor){
         
         this.id = instructor.getId();
         this.firstName = instructor.getFirstName();
         this.lastName = instructor.getLastName();
-   
+        this.hireDate = Calendar.getInstance();
+        this.course = new CourseDto(instructor.getCourse());
     }
 
     public int getId() {
@@ -39,9 +45,29 @@ public class InstructorDto {
         this.lastName = lastName;
     }
     
+    
+    
+    public Calendar getHireDate() {
+        return hireDate;
+    }
+
+    public void setHireDate(Calendar hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public CourseDto getCourse() {
+        return course;
+    }
+
+    public void setCourse(CourseDto course) {
+        this.course = course;
+    }
+
     @Override
     public String toString() {
-        return "{\"id\":" + id + ", \"firstName\":\"" + firstName + ", \"lastName\":\"" + lastName + "\"}";
+        
+        String formattedDate = new SimpleDateFormat(" dd-MMM-yyyy ").format(hireDate.getTime());
+        return "{\"id\":" + id + ", \"firstName\":\"" + firstName + ", \"lastName\":\"" + lastName + ", \"hireDate\":\"" + formattedDate + ", \"course\":\""+ course + "\"}";
     }
     
 }

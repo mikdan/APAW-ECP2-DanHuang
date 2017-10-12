@@ -9,14 +9,17 @@ public class Instructor {
     private String firstName;
     private String lastName;
     private Calendar hireDate;
+    private Course course;
     
     public Instructor() {
         
     }
 
     
-    public Instructor( String firstName){
+    public Instructor(String firstName, String lastName, Course course){
         this.firstName = firstName;
+        this.lastName = lastName;
+        this.course = course;
         this.hireDate = Calendar.getInstance();
     }
        
@@ -29,6 +32,16 @@ public class Instructor {
         this.id = id;
     }
     
+    public Course getCourse() {
+        return course;
+    }
+
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+
     public String getFirstName() {
         return firstName;
     }
@@ -56,8 +69,8 @@ public class Instructor {
     @Override
     public String toString() {
         
-        String formattedDate = new SimpleDateFormat("HH:00 dd-MMM-yyyy ").format(hireDate.getTime());
-        return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", hireDate=" + formattedDate + "]";
+        String formattedDate = new SimpleDateFormat(" dd-MMM-yyyy ").format(hireDate.getTime());
+        return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", hireDate=" + formattedDate + ", course=" + course +"]";
     }
 
 }
