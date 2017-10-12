@@ -1,0 +1,32 @@
+language: java
+jdk:
+- oraclejdk8
+branches:
+  only:
+  - master
+  - develop
+notifications:
+  email:
+    recipients:
+    - architect@gmail.com
+services:
+- mysql
+before_install:
+- mysql -e 'CREATE DATABASE IF NOT EXISTS bd;'
+script:
+
+# Calidad codigo: Sonarcloud
+
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+mvn sonar: sonar \
+  -Dsonar.organization=mikdan-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=37107c3f9a478fd68aa08e89eeaca0b22dc86eb2
+  
+# Unit Test & Integration Test
+- mvn verify --settings settings.xml
+# Deploy & Functional Testing
+- if [ $TRAVIS_TEST_RESULT == 0 ];
+     then  mvn verify -Ppreproduction --settings settings.xml; 
+     else  echo "ERRORES!!! ... se saltan los test de funcionalidad"; 
+  fi
