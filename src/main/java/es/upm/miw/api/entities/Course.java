@@ -6,12 +6,12 @@ public class Course {
     private String title;
     private int credits; 
     
-    public Course(){
-        
+    public Course() {
+      
     }
     
-    public Course(String title, int credits) {
-
+    public Course( String title, int credits) {
+      
         this.title = title;
         this.credits = credits;
     }
@@ -44,6 +44,7 @@ public class Course {
     public String toString() {
         return "Course [id=" + id + ", title=" + title + ", credits=" + credits + "]";
     }
+    
     
     
 }

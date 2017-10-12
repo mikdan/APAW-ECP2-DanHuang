@@ -1,4 +1,3 @@
-
 package es.upm.miw.api.entities;
 
 import java.text.SimpleDateFormat;
@@ -11,17 +10,11 @@ public class Instructor {
     private String lastName;
     private Calendar hireDate;
     
-    public Instructor(int id, String firstName){
-        this.id = id;
-        this.firstName = firstName;
-        this.hireDate = Calendar.getInstance();
+    public Instructor() {   
     }
-       
-    public Instructor(int id, String firstName, String lastName) {
-        super();
-        this.id = id;
+    
+    public Instructor(String firstName){
         this.firstName = firstName;
-        this.lastName = lastName;
         this.hireDate = Calendar.getInstance();
     }
 
@@ -67,3 +60,4 @@ public class Instructor {
     
 
 }
+
