@@ -8,17 +8,14 @@ branches:
 notifications:
   email:
     recipients:
-    - architect@gmail.com
-services:
-- mysql
-before_install:
-- mysql -e 'CREATE DATABASE IF NOT EXISTS bd;'
+    - mikdan89@gmail.com
+
 script:
 
 # Calidad codigo: Sonarcloud
 
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
-mvn sonar: sonar \
+mvn sonar: xsonar \
   -Dsonar.organization=mikdan-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=37107c3f9a478fd68aa08e89eeaca0b22dc86eb2
