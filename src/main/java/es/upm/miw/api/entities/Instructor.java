@@ -16,7 +16,7 @@ public class Instructor {
     }
 
     
-    public Instructor(String firstName, String lastName, Course course){
+    public Instructor(String firstName, String lastName, Calendar hireDate, Course course){
         this.firstName = firstName;
         this.lastName = lastName;
         this.course = course;

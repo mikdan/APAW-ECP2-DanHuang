@@ -1,16 +1,16 @@
 package es.upm.miw.api.resources.exceptions;
 
-public class CourseFieldInvalidException extends Exception {
+public class FieldInvalidException extends Exception {
     
     private static final long serialVersionUID =  -1L;
 
     public static final String DESCRIPTION = "fuera del rango";
 
-    public CourseFieldInvalidException(String detail) {
+    public FieldInvalidException(String detail) {
         super(DESCRIPTION + ". " + detail);
     }
 
-    public CourseFieldInvalidException() {
+    public FieldInvalidException() {
         this("");
     }
 

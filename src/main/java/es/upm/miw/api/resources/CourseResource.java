@@ -6,7 +6,7 @@ import es.upm.miw.api.controllers.CourseController;
 import es.upm.miw.api.dtos.CourseDto;
 import es.upm.miw.api.dtos.InstructorsCourseDto;
 import es.upm.miw.api.resources.exceptions.CourseExistException;
-import es.upm.miw.api.resources.exceptions.CourseFieldInvalidException;
+import es.upm.miw.api.resources.exceptions.FieldInvalidException;
 import es.upm.miw.api.resources.exceptions.CourseIdNotFoundException;
 
 public class CourseResource {
@@ -22,7 +22,7 @@ public class CourseResource {
         return optional.orElseThrow(()->new CourseIdNotFoundException(Integer.toString(id)));
     }
     
-    public void createCourse(String title, int credits) throws CourseExistException, CourseFieldInvalidException {
+    public void createCourse(String title, int credits) throws CourseExistException, FieldInvalidException {
         this.validateFileds(title, credits);
         if (new CourseController().isExited(title, credits)) {
             throw new CourseExistException("title:" + title + ",credits:" + credits);
@@ -30,13 +30,13 @@ public class CourseResource {
         new CourseController().createCourse(title,credits);
     }
 
-    private void validateFileds(String title, int credits) throws CourseFieldInvalidException {
+    private void validateFileds(String title, int credits) throws FieldInvalidException {
         // TODO Auto-generated method stub
         if (title == null || title.isEmpty()) {
-            throw new CourseFieldInvalidException(title);
+            throw new FieldInvalidException(title);
         }
         if (credits < 1) {
-            throw new CourseFieldInvalidException("credits");
+            throw new FieldInvalidException("credits");
         }
         
     }
