@@ -69,7 +69,7 @@ public class Instructor {
     @Override
     public String toString() {
         
-        String formattedDate = new SimpleDateFormat(" dd-MMM-yyyy ").format(hireDate.getTime());
+        String formattedDate = new SimpleDateFormat("dd/MMM/yyyy").format(hireDate.getTime());
         return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", hireDate=" + formattedDate + ", course=" + course +"]";
     }
 
