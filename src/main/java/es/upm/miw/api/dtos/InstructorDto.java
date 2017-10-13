@@ -12,6 +12,11 @@ public class InstructorDto {
     private Calendar hireDate;
     private CourseDto course;
     
+    
+    public InstructorDto(){
+        
+    }
+    
     public InstructorDto(Instructor instructor){
         
         this.id = instructor.getId();

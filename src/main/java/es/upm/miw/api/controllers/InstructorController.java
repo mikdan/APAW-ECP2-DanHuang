@@ -41,6 +41,8 @@ public class InstructorController {
             DaoFactory.getFactory().getInstructorDao().deleteById(id);
             return res;
         }
-        return null;
+        else {
+            return new InstructorDto();
+        }
     }
 }
