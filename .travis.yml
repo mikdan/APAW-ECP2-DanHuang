@@ -15,7 +15,7 @@ script:
 # Calidad codigo: Sonarcloud
 
 - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify --settings settings.xml
-- mvn sonar:sonar -Dsonar.organization=mikdan-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=37107c3f9a478fd68aa08e89eeaca0b22dc86eb2 --settings settings.xml
+mvn sonar: sonar -Dsonar.organization=mikdan-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=37107c3f9a478fd68aa08e89eeaca0b22dc86eb2 --settings settings.xml
   
 # Unit Test & Integration Test
 - mvn verify --settings settings.xml
