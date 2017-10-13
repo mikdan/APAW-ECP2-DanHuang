@@ -26,7 +26,7 @@ public class DaoFactoryMemory extends DaoFactory{
             courseDao = new CourseDaoMemory();
         }
         
-        return null;
+        return courseDao;
     }
 
 }

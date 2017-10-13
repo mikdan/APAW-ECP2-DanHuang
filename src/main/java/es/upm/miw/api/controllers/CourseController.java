@@ -52,7 +52,7 @@ public class CourseController {
         Boolean res = false;
         List<Course> courses = DaoFactory.getFactory().getCourseDao().findAll();
         for (Course item : courses) {
-            if (item.getTitle().toUpperCase().equals(title.toUpperCase()) && item.getCredits()== credits) {
+            if (item.getTitle().toUpperCase().equals(title.toUpperCase()) && item.getCredits() == credits) {
                 res = true;
                 break;
             }
