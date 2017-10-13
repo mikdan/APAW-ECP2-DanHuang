@@ -14,7 +14,6 @@ import es.upm.miw.http.HttpException;
 import es.upm.miw.http.HttpMethod;
 import es.upm.miw.http.HttpRequest;
 import es.upm.miw.http.HttpRequestBuilder;
-
 public class InstructorRecourseFuntionalTesting {
 
     @Before
@@ -66,6 +65,31 @@ public class InstructorRecourseFuntionalTesting {
         HttpRequest request = new HttpRequestBuilder().method(HttpMethod.POST).path(InstructorResource.INSTRUCTOR)
                 .body("Juan:Rodriguez:13/oct/2017:2").build();
         new HttpClientService().httpRequest(request);
+    }
+    
+    @Test(expected = HttpException.class)
+    public void testReadInstructorIdEmpty() {
+        createInstructor();
+        HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(InstructorResource.INSTRUCTOR).build();
+        new HttpClientService().httpRequest(request);
+    }
+    
+    @Test(expected = HttpException.class)
+    public void testReadInstructorIdNotFound() {
+        createInstructor();
+        HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(InstructorResource.INSTRUCTOR)
+                .path(InstructorResource.ID).expandPath("2").build();
+        new HttpClientService().httpRequest(request);
+    }
+    
+    @Test
+    public void testDeleteInstructor() {
+        createInstructor();
+        HttpRequest request = new HttpRequestBuilder().method(HttpMethod.DELETE).path(InstructorResource.INSTRUCTOR)
+                .path(InstructorResource.ID).expandPath("1").build();
+        assertEquals(
+                "{\"id\":1,\"firstName\":Juan,\"lastName\":Rodriguez,\"hireDate\":13/oct/2017,\"course\":{\"id\":1,\"title\":course1,\"credits\":5}",
+                new HttpClientService().httpRequest(request).getBody());
     }
 
 

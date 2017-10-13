@@ -66,7 +66,7 @@ public class CourseResourceFuntionalTesting {
         this.createCourse();
         HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(CourseResource.COURSE).path(CourseResource.ID)
                 .expandPath("1").build();
-        assertEquals("{\"id\":1,\"title\":course1,\"credits\":5\"}", new HttpClientService().httpRequest(request).getBody());
+        assertEquals("{\"id\":1,\"title\":course1,\"credits\":5}", new HttpClientService().httpRequest(request).getBody());
 
     }
     

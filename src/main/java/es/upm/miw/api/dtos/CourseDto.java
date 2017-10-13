@@ -40,7 +40,7 @@ public class CourseDto {
 
     @Override
     public String toString() {
-        return "{\"id\":" + id + ",\"title\":" + title + ",\"credits\":" + credits + "\"}";
+        return "{\"id\":" + id + ",\"title\":" + title + ",\"credits\":" + credits + "}";
     }
     
     

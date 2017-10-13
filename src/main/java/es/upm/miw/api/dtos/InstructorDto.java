@@ -72,7 +72,7 @@ public class InstructorDto {
     public String toString() {
         
         String formattedDate = new SimpleDateFormat("dd/MMM/yyyy").format(hireDate.getTime()); 
-        return "{\"id\":" + id + ",\"firstName\":" + firstName + ",\"lastName\":" + lastName + ",\"hireDate\":" + formattedDate + ",\"course\":"+ course + "\"}";
+        return "{\"id\":" + id + ",\"firstName\":" + firstName + ",\"lastName\":" + lastName + ",\"hireDate\":" + formattedDate + ",\"course\":"+ course ;
     }
     
 }

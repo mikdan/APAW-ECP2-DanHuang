@@ -37,7 +37,7 @@ public class Dispatcher {
                 String idCourse = request.getBody().split(":")[3];
 
                 Calendar hdate = Calendar.getInstance();
-                SimpleDateFormat formattedDate = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat formattedDate = new SimpleDateFormat("dd/MMM/yyyy");
                 hdate.setTime(formattedDate.parse(hireDate));
                 instructorResource.createInstructor(firstName, lastName, hdate, Integer.valueOf(idCourse));
 
